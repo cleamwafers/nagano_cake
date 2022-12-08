@@ -1,23 +1,23 @@
 Rails.application.routes.draw do
   
-# 顧客用
-# URL /customers/sign_in ...
-  devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-}
-# 管理者用
-# URL /admin/sign_in ...
+ namespace :admin do
+  get 'homes/top'
+  resources :items, only: [:index, :show]
+    # 管理者用
+    # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
    sessions: "admin/sessions"
-}
-
-　namespace :admin do
-    
-  resources :items, only: [:index, :show]
+   }
   end
  
-
+  namespace :customer do  
     get 'homes/top'
     get 'homes/about'
+      # 顧客用
+      # URL /customers/sign_in ...
+    devise_for :customers,skip: [:passwords], controllers: {
+     registrations: "public/registrations",
+     sessions: 'public/sessions'
+    }
+ end
 end
