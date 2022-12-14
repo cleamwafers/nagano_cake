@@ -18,7 +18,7 @@
       <%= link_to "NaganoCAKE", admin_top_path %>
       <% end %>
       <ul class="nav navbar-nav navbar-right">
-        
+
         <% if customer_signed_in? %>
 
           <!--カスタマーがログインしている時 -->
@@ -80,10 +80,10 @@
 
           <!-- ログインしていない時 -->
           <li>
-           <%= link_to "",public_homes_about_path %>
+           <%= link_to "About",public_homes_about_path %>
           </li>
           <li>
-            <%= link_to "商品一覧", admin_products_path %>
+            <%= link_to "商品一覧", public_items_path %>
           </li>
           <li>
             <%= link_to "新規登録", new_customer_registration_path  %>
@@ -100,8 +100,8 @@
    <main>
     <%= flash[:notice] %>
     <%= yield %>
-    </main>  
-    
-    
+    </main>
+
+
   </body>
 </html>
