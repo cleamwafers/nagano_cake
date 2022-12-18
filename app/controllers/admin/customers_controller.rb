@@ -1,5 +1,10 @@
 class Admin::CustomersController < ApplicationController
 before_action :authenticate_admin!
+
+has_many :orders
+# has_many : addresses
+# has_many : cart_items
+
  def index
   @customers = Customer.all
  end

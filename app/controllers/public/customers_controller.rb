@@ -1,4 +1,9 @@
 class Public::CustomersController < ApplicationController
+
+  has_many :adresses
+  has_many :order_items
+  has_many :cart_items
+
   def show
   end
 

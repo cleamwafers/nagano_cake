@@ -1,4 +1,7 @@
 class Public::AddressesController < ApplicationController
+before_action :authenticate_public!
+  belongs_to :customers
+
   def index
   end
 

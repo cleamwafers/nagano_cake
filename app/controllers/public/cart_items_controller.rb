@@ -1,4 +1,9 @@
 class Public::CartItemsController < ApplicationController
+   before_action :authenticate_public!
+
+   belongs_to :items
+   belongs_to :customers
+
   def index
   end
 

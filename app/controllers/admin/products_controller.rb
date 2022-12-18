@@ -1,5 +1,10 @@
 class Admin::ProductsController < ApplicationController
   before_action :authenticate_admin!
+
+  　belongs_to :gernes,dependent: :destroy
+  　has_many :order_items
+  # 　has_many :cart_items
+
   def index
      @products = Product.all.page(params[:page]).per(10)
   end
