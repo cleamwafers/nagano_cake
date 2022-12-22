@@ -6,7 +6,7 @@ has_many :orders
 # has_many : cart_items
 
  def index
-  @customers = Customer.all
+  @customers = Customer.page(params[:page])
  end
 
  def show

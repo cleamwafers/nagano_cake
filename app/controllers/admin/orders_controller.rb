@@ -6,6 +6,7 @@ class Admin::OrdersController < ApplicationController
   has_one_attached :profile_image
 
   def show
+    @orders = Order.page(params[:page])
   end
 
   def update

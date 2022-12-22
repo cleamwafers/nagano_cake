@@ -10,7 +10,7 @@ ja:
         in_production: "制作中"
         preparing_to_ship: "発送準備中"
         sent: "発送済み"
-
+    
     order_item:
       production_status:
         cannot_be_manufactured: "製作不可"
