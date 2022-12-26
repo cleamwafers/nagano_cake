@@ -1,7 +1,7 @@
 class Admin::GenresController < ApplicationController
   before_action :authenticate_admin!
 
-  　has_many :products
+  # has_many :products
   def index
     @genre = Genre.new
     @genres = Genre.all.page(params[:page]).per(10)
