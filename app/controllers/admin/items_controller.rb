@@ -15,11 +15,14 @@ class Admin::ItemsController < ApplicationController
 
   def create
      @item = Item.new(item_params)
+    # @item.admin_id = current_customer
+
     if @item.save
-      flash[:notice] ="Item was successfully created"
-      redirect_to admin_item_path(@item) # リダイレクト先変更
+    redirect_to admin_item_path(@item.id), notice: "Item was successfully created."
     else
-      render "new"
+      @items = Item.all
+      @admin = current_user
+      render:new
     end
   end
 
