@@ -10,18 +10,17 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @item =　Item.new
   end
 
   def create
      @item = Item.new(item_params)
-    # @item.admin_id = current_customer
 
     if @item.save
     redirect_to admin_item_path(@item.id), notice: "Item was successfully created."
     else
       @items = Item.all
-      @admin = current_user
+      @admin = current_admin
       render:new
     end
   end

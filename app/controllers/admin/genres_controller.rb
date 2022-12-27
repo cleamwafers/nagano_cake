@@ -28,9 +28,9 @@ class Admin::GenresController < ApplicationController
       flash[:success] = "ジャンルを変更しました"
       redirect_to admin_genres_path
       if @genre.is_valid == false
-        @genre.products.each do |product|
-          product.is_sale = false
-          product.save
+        @genre.items.each do |item|
+          item.is_sale = false
+          item.save
         end
       end
     else
