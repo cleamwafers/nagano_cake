@@ -6,13 +6,14 @@ class Admin::ItemsController < ApplicationController
   # has_many :cart_items
 
   def index
-     @Items = Item.page(params[:page]).per(10)
+     @items = Item.all.page(params[:page])
      @item = Item.new
      @items = Item.all
+     @item = Item.find(params[:id])
   end
 
   def new
-    @item =　Item.new
+    @item = Item.new
   end
 
   def create
@@ -28,9 +29,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @items = Item.find(params[:id])
     @item =Item.new
-    @item = Item.find(params[:id])
   end
 
   def edit
