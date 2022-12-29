@@ -14,13 +14,13 @@
 				<% @items.each do |item| %>
   				<tr>
             <td class="info col-xs-1">
-              <%= @item.id %>
+              <%= item.id %>
             </td>
             <td class="text-left">
               <%= link_to item.name, admin_item_path(item.id) %>
             </td>
             <td class="text-right col-xs-1">
-              <%= @item.price %>
+              <%= item.price %>
             </td>
           <!--  <td class="text-left col-xs-3">-->
           <!--    <%#= item.genre.name %>-->

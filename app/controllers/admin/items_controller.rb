@@ -9,7 +9,6 @@ class Admin::ItemsController < ApplicationController
      @items = Item.all.page(params[:page])
      @item = Item.new
      @items = Item.all
-     @item = Item.find(params[:id])
   end
 
   def new
