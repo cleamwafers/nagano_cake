@@ -9,6 +9,7 @@ class Admin::ItemsController < ApplicationController
      @items = Item.all.page(params[:page])
      @item = Item.new
      @items = Item.all
+     @images = Item.all
   end
 
   def new
@@ -30,6 +31,7 @@ class Admin::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item =Item.new
+    # @image = Image.find(params[:id])
   end
 
   def edit
