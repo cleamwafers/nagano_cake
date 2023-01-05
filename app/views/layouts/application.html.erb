@@ -12,15 +12,9 @@
     <header>
      <nav class="nav navbar-nav navbar-left title">
      <div class="container">
-      <% if admin_signed_in? %>
-      <%= link_to "NaganoCAKE", admin_top_path %>
-      <% else %>
-      <%= link_to "NaganoCAKE", admin_top_path %>
-      <% end %>
       <ul class="nav navbar-nav navbar-right">
 
         <% if customer_signed_in? %>
-
           <!--カスタマーがログインしている時 -->
           <li class="header-name">
             ようこそ、<%= full_name(current_customer) %>さん！
@@ -57,7 +51,6 @@
           </li>
 
         <% elsif admin_signed_in? %>
-
           <!-- 管理者がログインしている時 -->
           <li>
             <%= link_to "商品一覧", admin_items_path  %>
@@ -101,7 +94,6 @@
     <%= flash[:notice] %>
     <%= yield %>
     </main>
-
 
   </body>
 </html>
