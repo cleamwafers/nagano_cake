@@ -8,7 +8,6 @@ class Admin::ItemsController < ApplicationController
   def index
      @items = Item.all.page(params[:page])
      @item = Item.new
-     @items = Item.all
      @images = Item.all
   end
 
