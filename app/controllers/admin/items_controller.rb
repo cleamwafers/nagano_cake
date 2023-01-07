@@ -29,7 +29,6 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @item =Item.new
     # @image = Image.find(params[:id])
   end
 

@@ -1,24 +1,27 @@
-<% provide(:title, "商品編集") %>
-<h2 class="head-line title_h2 text-center">商品編集</h2>
-<div class="row">
+<div class="container px-5 px-sm-0">
+ <div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-8 offset-md-1">
+   <h2>商品編集</h2>
+   <%= form_with model: @item,url: admin_item_path(@item),method: :patch  do  |f| %>
 
-  <%= form_for(@product, url: admin_product_path, method: :patch, class: "form-horizontal") do |f| %>
-    <%= render "layouts/error_messages", resource: @product%>
-    <div class="col-xs-4">
-      <div class="img_field">
-        <%= attachment_image_tag(@product, :image, size: "250x180") %>
-      </div>
-      <div class="form-group">
-	      <%= f.attachment_field :image, class: " image" %>
-      </div>
-    </div>
+            <label for="image">商品画像</label>
+           <%= f.file_field :image, placeholder: "画像", accept: "image/*" %><br>
 
-    <div class="col-xs-6">
-      <%= render "form_product", f: f %>
-      <div class="actions">
-	      <%= f.submit "変更を保存", class: "btn btn-primary pull-right" %>
-      </div>
+            <label for="name">商品名</label>
+            <%= f.text_field :name %><br>
 
-    </div>
-  <% end %>
+            <label for="introduction">商品説明</label><br>
+            <%= f.text_area :introduction %><br>
+
+            <label for="price">税抜き価格</label><br>
+            <%=  f.text_field :price %><br>
+
+
+   <%= f.submit "変更を保存", class: "btn btn-primary pull-right" %>
+   <% end %>
+
+  </div>
+ </div>
 </div>

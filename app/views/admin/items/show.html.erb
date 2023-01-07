@@ -1,49 +1,40 @@
-<h2>商品詳細</h2>
- <div class="row">
-	<div class="col-xs-12">
-	  <div class="col-xs-4">
-       <div id="img_field">
-	        <% if list.image.attached? %>
-            <%= image_tag item.image, size: "300x200" %>
-            <% else %>
-            <%= image_tag 'no_image', size: "300x200" %>
-            <% end %>
-            <% end %>
-       </div>
-      </div>
-    <!--<%#= image_tag @image.item.get_image(100,100) %>-->
-  <!--  <%#= image_tag @item.image, size: "300x200" %>-->
-  <!--</div>-->
+ <% if @item.errors.any? %>
+    <%=@item.errors.count %>errors prohibited this obj from being saved:
+      <ul>
+        <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+      </ul>
+<% end %>
+ <div class="container px-5 px-sm-0">
+  <div class="row">
 
- <div class="col-xs-6">
- <div class="field">
-  <p>商品名 <%= @item.name %></p>
- </div><br>
- <div class="field">
- <p>商品説明 <%= @item.introduction %></p>
- </div><br>
-	    <!--  <div class="field">-->
-					<!--<p>-->
-						<!--ジャンル <%#= @item.genre.name %>-->
-					<!--</p><br>-->
-	    <!--  </div>-->
- <div class="field">
- <p>税込価格 <%= (@item.price * 1.1).floor %>(<%= @item.price %>)円<br>
-	(税抜価格)</p><br>
- </div>
-	    <!--  <div class="field">-->
-					<!--<p>-->
-						<!--販売ステータス-->
-		    <!--    <%# if @item.is_sale == true %>-->
-						<!-- <i class="fas fa-bullseye red"></i>販売中-->
-						<!--<%# elsif @item.is_sale == false %>-->
-						<!-- <i class="fas fa-bullseye blue"></i>販売停止中-->
-						<!--<%# end %>-->
-					<!--</p>-->
-	    <!--  </div>-->
- <div class="actions col-xs-9">
-  <%= link_to "編集する", edit_admin_item_path(@item), data: {"turbolinks" => false}, class: "glyphicon glyphicon-pencil btn btn-success pull-right" %>
- </div>
- </div>
+   <div class="col-md-3">
+
+   </div>
+
+   <div class="col-md-8 offset-md-1">
+      <h2>商品詳細</h2>
+      <table class="table table-hover table-inverse">
+
+   <tbody>
+           <tr>
+           <td>
+           <%= image_tag @item.get_image(100,100)  %>
+            <br>
+            <%= @item.name %>
+           </td>
+           <td>
+            <%= @item.introduction %>
+           </td>
+           <td>
+             <p>税込価格 <%= (@item.price * 1.1).floor %>(<%= @item.price %>)円<br>
+	        	(税抜価格)<br>
+           </td>
+           </tr>
+   </tbody>
+   </table>
+
+  </div>
  </div>
 </div>
