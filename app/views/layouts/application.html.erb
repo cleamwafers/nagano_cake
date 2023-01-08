@@ -17,7 +17,7 @@
         <% if customer_signed_in? %>
           <!--カスタマーがログインしている時 -->
           <li class="header-name">
-            ようこそ、<%= full_name(current_customer) %>さん！
+            ようこそ、<%= current_customer.last_name %>さん！
           </li>
           <li>
             <%= link_to "マイページ", customers_path(current_customer), class: "header_btn glyphicon glyphicon-home" %>
