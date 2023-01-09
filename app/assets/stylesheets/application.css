@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.item-box {
+  display: inline-block;
+ justify-content: center;
+  align-items: center;
+}
+
+.link1{
+position: absolute;
+ right: 0;
+}
