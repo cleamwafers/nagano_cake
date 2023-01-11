@@ -1,36 +1,17 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
+<div class="row">
     <div class="col-md-3">
-		<%= render 'item',item: @item %>
-
 	<h2>商品一覧</h2>(全X件)
-	<table>
-	 <thead>
-	  <tr>
-       <th></th>
-       <th>商品名</th>
-       <th>価格</th>
-      </tr>
-	 </thead>
-	 <tbody>
-	  <% @items.each do |item| %>
-		<tr>
-          <th><%= link_to public_item_path(item.id) do %>
-              <% if list.image.attached? %>
-              <%= image_tag item.image, size: "100x100" %>
-              <% else %>
-              <%= image_tag 'no_image', size: "100x100" %>
-              <% end %>
-              <% end %>
-              <% end %>
-          </th>
-          <th><%= @item.name %></th>
-          <th>税込価格 <%= (@item.price * 1.1).floor %></th>
-        </tr>
-      <% end %>
-	 </tbody>
-	</table>
+　<div class="item-wrap">
+	  <% @item.each do |item|%>
+	<div class="item-box">
+  　<%= image_tag item.get_image(200,150) %>
+  <div class="item-comment">
+   <span class="item-name"><%= item.name %></span><br>
+   <span class="item-price"><%= item.price %></span>
   </div>
+  </div>
+  <% end %>
  </div>
+ <%= paginate @item %>
 </div>
-<%= paginate(@items) %>
+</div>
