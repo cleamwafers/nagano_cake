@@ -1,10 +1,10 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_public!
 
-  has_many :order_items,dependent: :destroy
-  belongs_to :customers
+  # has_many :order_items,dependent: :destroy
+  # belongs_to :customers
 
-  has_one_attached :profile_image
+  # has_one_attached :image
 
   def new
     @order = Order.new

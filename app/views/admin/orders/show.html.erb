@@ -61,12 +61,12 @@
 		          	</div>
 	          	<% end %>
 				<% @order_details.each do |order_detail| %>
-					<tr>
+					       <tr>
 			            <td class="text-left">
-			              <%= order_detail.product.name %>
+			              <%= order_detail.item.name %>
 			            </td>
 			            <td class="text-right">
-			              ¥<%= tax_price(order_detail.product.tax_out_price).to_s(:delimited) %>
+			              ¥<%= tax_price(order_detail.item.tax_out_price).to_s(:delimited) %>
 			            </td>
 			            <td class="text-right">
 			              <%= order_detail.quantity %>
@@ -80,7 +80,7 @@
 			            	<%= f.submit '更新'  ,class: "btn btn-warning" %>
 			            </td>
 			            <% end %>
-			      	</tr>
+			      	  </tr>
 				<% end %>
 				</tbody>
 			</table>

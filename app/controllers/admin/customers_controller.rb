@@ -1,7 +1,7 @@
 class Admin::CustomersController < ApplicationController
 before_action :authenticate_admin!
 
-has_many :orders
+# has_many :orders
 # has_many : addresses
 # has_many : cart_items
 
@@ -27,6 +27,7 @@ has_many :orders
 			end
 
  end
+
  private
  def customer_params
 	  params.require(:customer).permit(:first_name,:last_name,:first_name_kana,:last_name_kana,:postcode,:city,:phone_number,:email,:is_deleted)

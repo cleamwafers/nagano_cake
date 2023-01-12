@@ -25,9 +25,7 @@
             <%= link_to "商品一覧", public_items_path, class: "header_btn glyphicon glyphicon-briefcase" %>
           </li>
           <li>
-            <%#=# link_to customers_cart_items_path, data: {"turbolinks" => false},
-             <!--class: "header_btn glyphicon glyphicon-shopping-cart" do %>カート(<%#=# current_customer.cart_items.count %>個)-->
-            <%# end %>
+            <%= link_to"カート", public_cart_items_path, class: "header_btn glyphicon glyphicon-shopping-cart" %>
           </li>
           <li>
             <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %>

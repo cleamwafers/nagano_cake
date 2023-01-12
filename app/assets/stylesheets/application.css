@@ -14,9 +14,9 @@
  *= require_self
  */
 .item-box {
-  display: inline-block;
- justify-content: center;
-  align-items: center;
+  float: left;
+  list-style: none;
+  margin-right: 30px;
 }
 
 .link1{
