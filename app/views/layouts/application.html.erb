@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="ja">
 <html>
   <head>
     <title>NaganoCake</title>
@@ -13,58 +14,48 @@
      <nav class="nav navbar-nav navbar-left title">
      <div class="container">
       <ul class="nav navbar-nav navbar-right">
+         <%= button_to "LOGO", public_top_path, class: "header_btn glyphicon glyphicon-home" %>
+        <!--<img src= "favicon.ico" >-->
 
         <% if customer_signed_in? %>
           <!--カスタマーがログインしている時 -->
           <!--<li class="header-name">-->
             <!--ようこそ、<%#= current_customer.name %>さん！-->
+          <div class="button1">
+            <%= button_to "マイページ", customer_session_path(current_customer), class: "header_btn glyphicon glyphicon-home" %>
 
-            <%= link_to "マイページ", customer_session_path(current_customer), class: "header_btn glyphicon glyphicon-home" %>
+            <%= button_to "商品一覧", public_items_path, class: "header_btn glyphicon glyphicon-briefcase" %>
 
-          <li>
-            <%= link_to "商品一覧", public_items_path, class: "header_btn glyphicon glyphicon-briefcase" %>
-          </li>
-          <li>
-            <%= link_to"カート", public_cart_items_path, class: "header_btn glyphicon glyphicon-shopping-cart" %>
-          </li>
-          <li>
-            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %>
-          </li>
+            <%= button_to "カート", public_cart_items_path, class: "header_btn glyphicon glyphicon-shopping-cart" %>
+
+            <%= button_to "ログアウト", destroy_customer_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %>
+          </div>
 
         <% elsif admin_signed_in? %>
           <!-- 管理者がログインしている時 -->
+          <div class="button2">
+            <%= button_to "商品一覧",admin_items_path %>
 
-            <%= link_to "商品一覧", admin_items_path  %>
+            <%= button_to "会員一覧", admin_customers_path %>
 
+            <%= button_to "注文履歴一覧", today_order_index_admin_orders_path %>
 
-            <%= link_to "会員一覧", admin_customers_path %>
-
-
-            <%= link_to "注文履歴一覧", today_order_index_admin_orders_path %>
-
-          <!--<li>-->
-          <!--  <%#= link_to "ジャンル一覧", admin_genres_path %>-->
-          <!--</li>-->
-
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete  %>
-
+            <%= button_to "ログアウト", destroy_admin_session_path, method: :delete  %>
+          </div>
 
           <%#= render "layouts/search" %>
         <% else %>
 
           <!-- ログインしていない時 -->
-          <li>
-           <%= link_to "About",public_homes_about_path %>
-          </li>
-          <li>
-            <%= link_to "商品一覧", public_items_path %>
-          </li>
-          <li>
-            <%= link_to "新規登録", new_customer_registration_path  %>
-          </li>
-          <li>
-            <%= link_to "ログイン", new_customer_session_path %>
-          </li>
+          <div class="button3">
+           <%= button_to "About",public_homes_about_path %>
+
+          <%= button_to "商品一覧", public_items_path %>
+
+          <%= button_to "新規登録", new_customer_registration_path  %>
+
+          <%= button_to "ログイン", new_customer_session_path %>
+          </div>
 
         <% end %>
       </ul>

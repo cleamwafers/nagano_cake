@@ -28,3 +28,8 @@ position: absolute;
  position:absolute;
  right:0;
 }
+
+.button2{
+  display: flex;
+  justify-content: center;
+}
