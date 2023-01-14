@@ -10,9 +10,7 @@ class Public::ItemsController < ApplicationController
   end
 
   def show
-    @Items = Item.all
-    @Item = Item.new
-    @items = Item.find(params[:id])
+    @item = Item.find(params[:id])
     @cart_item = CartItem.new
   end
   def destroy

@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-md-3">
 	<h2>商品一覧</h2>(全X件)
-　<div class="item-wrap">
+	 <div class="item-wrap">
 	  <% @item.each do |item|%>
 	<div class="item-box">
-  　<%= image_tag item.get_image(200,150) %>
+	  <%= image_tag item.get_image(200,150) %>
   <div class="item-comment">
    <span class="item-name"><%= item.name %></span><br>
    <span class="item-price"><%= item.price %></span>

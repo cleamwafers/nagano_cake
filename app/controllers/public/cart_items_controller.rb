@@ -1,9 +1,7 @@
 class Public::CartItemsController < ApplicationController
-   before_action :authenticate_public!
+   before_action :authenticate_customer!
    before_action :set_cart_item, only: [:update, :destroy]
 
-   belongs_to :items
-   belongs_to :customers
 
   def index
     @cart_items = current_cart
@@ -22,9 +20,9 @@ class Public::CartItemsController < ApplicationController
     @cart_item = current_customer.cart_items.new(params_cart_item)
 
       # カートの中に同じ商品が重複しないようにして　古い商品と新しい商品の数量を合わせる
-    @update_cart_item =  CartItem.find_by(product: @cart_item.product)
+    @update_cart_item =  CartItem.find_by(item_id: )
     if @update_cart_item.present? && @cart_item.valid?
-        @cart_item.quantity += @update_cart_item.quantity
+        @cart_item.amount += @update_cart_item.amount
         @update_cart_item.destroy
     end
 
@@ -50,9 +48,9 @@ class Public::CartItemsController < ApplicationController
     @cart_item = current_customer.cart_items.new(params_cart_item)
 
       # カートの中に同じ商品が重複しないようにして　古い商品と新しい商品の数量を合わせる
-    @update_cart_item =  CartItem.find_by(product: @cart_item.product)
+    @update_cart_item =  CartItem.find_by(items: @cart_item.items)
     if @update_cart_item.present? && @cart_item.valid?
-        @cart_item.quantity += @update_cart_item.quantity
+        @cart_item.amount += @update_cart_item.amount
         @update_cart_item.destroy
     end
   end
@@ -60,6 +58,6 @@ class Public::CartItemsController < ApplicationController
   private
 
   def params_cart_item
-    params.require(:cart_item).permit(:quantity, :product_id)
+    params.require(:cart_item).permit(:amount, :product_id)
   end
 end
