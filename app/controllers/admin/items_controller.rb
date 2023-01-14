@@ -1,10 +1,6 @@
 class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
 
-  # belongs_to :gernes,dependent: :destroy
-  # has_many :order_items
-  # has_many :cart_items
-
   def index
      @items = Item.all.page(params[:page])
      @item = Item.new
