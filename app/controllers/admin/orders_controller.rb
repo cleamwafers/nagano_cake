@@ -1,8 +1,6 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
 
-  # has_one_attached :profile_image
-
   def show
     @orders = Order.page(params[:page])
   end

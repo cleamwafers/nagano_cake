@@ -1,8 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_public!
 
-  # has_one_attached :image
-
   def new
     @order = Order.new
   	@shipping_addresses = ShippingAddress.where(customer: current_customer)
