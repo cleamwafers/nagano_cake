@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
 
  has_many :order_items
- belongs_to :customers
+ belongs_to :customer
  has_one_attached :image
 
   enum pay_type: {credit_card: 0, bank_transfer: 1}

@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   has_one_attached :image
 
-  belongs_to :gernes
+  belongs_to :gerne
   has_many :order_items
   has_many :cart_items
 
