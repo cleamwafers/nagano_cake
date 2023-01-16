@@ -3,7 +3,7 @@ class Public::CartItemsController < ApplicationController
    before_action :set_cart_item, only: [:update, :destroy]
 
   def index
-    @cart_items = current_cart
+    @cart_items = current_customer
   end
 
   def update
@@ -26,13 +26,13 @@ class Public::CartItemsController < ApplicationController
     end
 
     if @cart_item.save
-      flash[:notice] = "#{@cart_item.product.name}をカートに追加しました"
-      redirect_to products_path
+      flash[:notice] = "#{@cart_item.item.name}をカートに追加しました"
+      redirect_to items_path
     else
       @item = Item.find(params[:cart_item][:product_id])
       @cart_item = CartItem.new
       flash[:alert] = "個数を選択してください"
-      render ("customer/products/show")
+      render ("customer/items/show")
     end
   end
 
@@ -40,7 +40,7 @@ class Public::CartItemsController < ApplicationController
     @cart_items = current_customer.cart_items
     @cart_items.destroy_all
     flash[:alert] = "カートの商品を全て削除しました"
-    redirect_to customers_cart_items_path
+    redirect_to public_cart_items_path
   end
 
   def create
@@ -48,15 +48,15 @@ class Public::CartItemsController < ApplicationController
 
       # カートの中に同じ商品が重複しないようにして　古い商品と新しい商品の数量を合わせる
     @update_cart_item =  CartItem.find_by(items: @cart_item.items)
-    if @update_cart_item.present? && @cart_item.valid?
-        @cart_item.amount += @update_cart_item.amount
-        @update_cart_item.destroy
-    end
+    # if @update_cart_item.present? && @cart_item.valid?
+    #     @cart_item.amount += @update_cart_item.amount
+    #     @update_cart_item.destroy
+    # end
   end
 
   private
 
-  def params_cart_item
-    params.require(:cart_item).permit(:amount, :product_id)
+  def cart_item_params
+    params.require(:cart_item).permit(:amount, :item_id)
   end
 end

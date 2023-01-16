@@ -6,7 +6,7 @@
 	<div class="item-box">
 	  <%= image_tag item.get_image(200,150) %>
   <div class="item-comment">
-   <span class="item-name"><%= item.name %></span><br>
+   <span class="item-name"><%= link_to item.name,public_item_path(item.id) %></span><br>
    <span class="item-price"><%= item.price %></span>
   </div>
   </div>
