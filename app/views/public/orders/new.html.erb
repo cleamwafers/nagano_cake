@@ -16,7 +16,7 @@
 <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
 <!--新しいお届け先-->
 <%= f.radio_button :adresses_method, Order.adresses_methods.key(2) %>
-<%= f.label :新しいお届け先　%>
+<%= f.label :新しいお届け先 %>
 <%= f.label :"郵便番号(ハイフンなし)" %>
     <%= f.text_field :postal_code, autocomplete: "postal_code" %><br>
 <%= f.label :"住所" %>
