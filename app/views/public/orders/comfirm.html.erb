@@ -1,6 +1,6 @@
 <h2>注文情報確認</h2>
 <div calss="row">
-    <table>
+    <table border="1" cellspacing="0" cellpadding="0">
       <thead>
           <tr class="info">
             <th>商品名</th>
@@ -13,14 +13,14 @@
           <% @cart_items.each do |cart| %>
             <tr>
               <td class="text-left">
-                <%= attachment_image_tag( cart.item, :image, size: "60x50") %>
-                <%= cart.item.name %>
+                <%= image_tag cart_item.item.get_image(50,50) %>
+                <%= cart_item.item.name %>
               </td>
               <td class="text-right">
-                <%= cart.item.price.to_s(:delimited) %>
+                <%= cart_item.item.with_tax_price %>
               </td>
               <td class="text-right">
-                  <%= cart.amount %>
+                  <%= cart_item.item.amount %>
               </td>
               <td class="text-right">
                 <%= cart_item.subtotal %>
@@ -29,37 +29,25 @@
           <% end %>
       </tbody>
     </table>
-    <table>
+    <table border="1" cellspacing="0" cellpadding="0">
        <tr>
         <th class="info">送料</th>
          <td><%= @order.shopping_fee %></td>
        </tr>
        <tr>
          <th class="info">商品合計</th>
-          <td><%= total_payment(@cart_items).to_s(:delimited) %></td>
+          <td><%= @total_price %></td>
          </tr>
        <tr>
         <th class="info">請求金額</th>
-        <td class="text-right">¥<%= billing(@order).to_s(:delimited) %></td>
+        <td class="text-right"><%= billing(@order).to_s %></td>
        </tr>
     </table>
   </div>
-  <div>
-      <table class="table table-hover table-condensed table-bordered">
-        <tr>
-          <th  class="info">支払方法</th>
-          <td>
-            <%= @order.payment_method %>
-          </td>
-        </tr>
-        <tr>
-          <th  class="info">お届け先</th>
-          <td>
+          <div  class="info">支払方法</div>
+            <%= @order.payment_method %><br>
+          <div  class="info">お届け先</div>
             <%= @order.adresses_method %>
-          </td>
-        </tr>
-    </table>
-  </div>
   <%= link_to thanx_public_orders_path do %>
         <button class="btn btn-secondary btn-lg" >
          注文を確定する
