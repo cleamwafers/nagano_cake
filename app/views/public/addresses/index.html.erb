@@ -16,3 +16,44 @@
     <%= f.text_field :name, autocomplete: "name" %>
   </div>
 <% end %>
+
+ <%= link_to public_addresses  do %>
+  <button class="btn btn-secondary btn-lg" >
+   新規登録
+  </button>
+ <% end %>
+
+ <table border="1" cellspacing="0" cellpadding="0" >
+  <tr>
+   <th>郵便番号</th>
+   <th>住所</th>
+   <th>宛名</th>
+   <th></th>
+  </tr>
+  <tbody>
+        <% @addresses.each do |address| %>
+        <td>
+        <%= address.postal_code %>
+        </td>
+        <td><%= address.address %></td>
+        <td>
+          <%= address.name %>
+        </td>
+        <td><%= cart_item.subtotal %></td>
+        <td>
+         <%= link_to edit_public_address_path, do %>
+          <button class="btn btn-secondary btn-lg" >
+            編集する
+          </button>
+         <% end %>
+         <%= link_to public_addresses, method: :delete, data:{confirm: '本当に削除しますか？'} do %>
+              <button class="btn btn-secondary btn-lg" >
+                削除する
+              </button>
+            <% end %>
+        </td>
+          </tr>
+          <% @total_price+=  cart_item.subtotal  %>
+        <% end %>
+      </tbody>
+    </table>
