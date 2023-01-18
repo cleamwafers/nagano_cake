@@ -20,7 +20,7 @@
         <% if customer_signed_in? %>
           <!--カスタマーがログインしている時 -->
           <!--<li class="header-name">-->
-            <!--ようこそ、<%#= @customer.last_name %>さん！-->
+            ようこそ、<%= current_customer.last_name %>さん！
           <div class="button1">
             <%= link_to public_customer_path(current_customer) do %>
              <button class="btn btn-secondary btn-lg" >

@@ -3,7 +3,7 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    
+    @orders = current_customer.orders
   end
 
   def comfirm
