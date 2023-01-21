@@ -26,6 +26,7 @@
                 <%= cart.subtotal %>
               </td>
             </tr>
+            <%= @total_price+=  cart.subtotal %>
           <% end %>
       </tbody>
     </table>
@@ -45,11 +46,11 @@
     </table>
   </div>
           <div  class="info">支払方法</div>
-            <%= @order.pay_type %><br>
+            <%= @order.pay_type_i18n  %><br>
           <div  class="info">お届け先</div>
             <%= @order.address %>
   <%= link_to thanx_public_orders_path do %>
-        <button class="btn btn-secondary btn-lg" >
+        <button class="btn btn-success" >
          注文を確定する
         </button>
   <% end %>
