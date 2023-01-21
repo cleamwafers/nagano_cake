@@ -3,11 +3,13 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-
   end
 
   def comfirm
-
+  @cart_items =CartItem.all
+  @order = Order.new(order_params)
+  @total_price = 0
+  @order.shopping_fee =800
   end
 
   def thanx
@@ -21,6 +23,9 @@ class Public::OrdersController < ApplicationController
 
   def show
   end
-end
 
 private
+  def order_params
+    params.require(:order).permit(:pay_type, :address, :postal_code, :name)
+  end
+end

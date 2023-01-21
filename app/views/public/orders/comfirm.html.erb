@@ -13,17 +13,17 @@
           <% @cart_items.each do |cart| %>
             <tr>
               <td class="text-left">
-                <%= image_tag cart_item.item.get_image(50,50) %>
-                <%= cart_item.item.name %>
+                <%= image_tag cart.item.get_image(50,50) %>
+                <%= cart.item.name %>
               </td>
               <td class="text-right">
-                <%= cart_item.item.with_tax_price %>
+                <%= cart.item.with_tax_price %>
               </td>
               <td class="text-right">
-                  <%= cart_item.item.amount %>
+                  <%= cart.amount %>
               </td>
               <td class="text-right">
-                <%= cart_item.subtotal %>
+                <%= cart.subtotal %>
               </td>
             </tr>
           <% end %>
@@ -40,14 +40,14 @@
          </tr>
        <tr>
         <th class="info">請求金額</th>
-        <td class="text-right"><%= billing(@order).to_s %></td>
+        <td class="text-right"><%= @order.shopping_fee+@total_price %></td>
        </tr>
     </table>
   </div>
           <div  class="info">支払方法</div>
-            <%= @order.payment_method %><br>
+            <%= @order.pay_type %><br>
           <div  class="info">お届け先</div>
-            <%= @order.adresses_method %>
+            <%= @order.address %>
   <%= link_to thanx_public_orders_path do %>
         <button class="btn btn-secondary btn-lg" >
          注文を確定する
