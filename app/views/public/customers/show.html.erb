@@ -3,7 +3,7 @@
 		<h2 class="head-line text-center title_h2">マイページ</h2>
 		<strong class="information-link">登録情報</strong>
 				<%= link_to edit_public_customer_path do %>
-				 <button class="btn btn-secondary btn-lg" >
+				 <button class="btn btn-success" >
 				 	編集する
 				 </button>
         <% end %><br>
@@ -32,14 +32,14 @@
 			<div class="mypage-bottoms">
 			 <strong class="shipping-link">配送先</strong>
 				<%= link_to public_addresses_path do %>
-				 <button class="btn btn-secondary btn-lg" >
+				 <button class= "btn btn-primary save col-xs-6" >
 				 	一覧を見る
 				 </button>
         <% end %><br>
 
         <strong class="shipping-link">注文履歴</strong>
 				<%= link_to public_orders_path do %>
-				 <button class="btn btn-secondary btn-lg" >
+				 <button class="btn btn-primary save col-xs-6">
 				 	一覧を見る
 				 </button>
         <% end %>

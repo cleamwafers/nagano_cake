@@ -15,7 +15,7 @@
      <nav class="nav navbar-nav navbar-left title">
      <div class="container">
       <ul class="nav navbar-nav navbar-right">
-         <%= button_to "LOGO", public_top_path, class: "header_btn glyphicon glyphicon-home" %>
+         <%= button_to "LOGO", public_top_path, class: "btn btn-light" %>
         <!--<img src= "favicon.ico" >-->
          </div>
 
@@ -26,28 +26,27 @@
             ようこそ、<%= current_customer.last_name %>さん！
           <div class="button1">
             <%= link_to public_customer_path(current_customer) do %>
-             <button class="btn btn-secondary btn-lg" >
+             <button class="btn btn-light" >
               マイページ
              </button>
             <% end %>
 
             <%= link_to public_items_path do %>
-             <button class="btn btn-secondary btn-lg" >
+             <button class="btn btn-light" >
               商品一覧
              </button>
             <% end %>
 
             <%= link_to public_cart_items_path do %>
-             <button class="btn btn-secondary btn-lg" >
+             <button class="btn btn-light" >
               カート
              </button>
             <% end %>
-             <%= link_to destroy_customer_session_path do %>
-             <button class="btn btn-secondary btn-lg" >
+            <%= link_to destroy_customer_session_path do %>
+             <button class="btn btn-light" >
               ログアウト
              </button>
             <% end %>
-            <%#= button_to "ログアウト", destroy_customer_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %>
           </div>
 
   <div class="container-fluid">

@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.label :"宛名" %>
     <%= f.text_field :name, autocomplete: "name" %>
-    <%= f.submit "新規登録", class:"btn btn-secondary btn-lg"  %>
+    <%= f.submit "新規登録", class:"btn btn-success"  %>
     <% end %>
   </div>
 
@@ -37,12 +37,12 @@
         </td>
         <td>
          <%= link_to edit_public_address_path(address) do %>
-          <button class="btn btn-secondary btn-lg" >
+          <button class= "btn btn-success">
             編集する
           </button>
          <% end %>
          <%= link_to public_addresses_path(address), method: :delete, data:{confirm: '本当に削除しますか？'} do %>
-              <button class="btn btn-secondary btn-lg" >
+              <button class="btn btn-danger" >
                 削除する
               </button>
             <% end %>
