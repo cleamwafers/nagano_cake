@@ -32,4 +32,11 @@ position: absolute;
 .button2{
   display: flex;
   justify-content: center;
+  background: white;
+}
+
+.btn-log_in{
+  color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
 }

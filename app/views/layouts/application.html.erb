@@ -11,93 +11,126 @@
 
   <body>
 <header>
+ <script src="https://kit.fontawesome.com/b19cc7d22f.js" crossorigin="anonymous"></script>
      <nav class="nav navbar-nav navbar-left title">
      <div class="container">
       <ul class="nav navbar-nav navbar-right">
          <%= button_to "LOGO", public_top_path, class: "header_btn glyphicon glyphicon-home" %>
         <!--<img src= "favicon.ico" >-->
+         </div>
 
         <% if customer_signed_in? %>
           <!--カスタマーがログインしている時 -->
-          <!--<li class="header-name">-->
+          <div class="container">
+          <nav class="navbar navbar-light bg-light">
             ようこそ、<%= current_customer.last_name %>さん！
           <div class="button1">
             <%= link_to public_customer_path(current_customer) do %>
              <button class="btn btn-secondary btn-lg" >
               マイページ
              </button>
-            <% end %><br>
+            <% end %>
 
             <%= link_to public_items_path do %>
              <button class="btn btn-secondary btn-lg" >
               商品一覧
              </button>
-            <% end %><br>
+            <% end %>
 
             <%= link_to public_cart_items_path do %>
              <button class="btn btn-secondary btn-lg" >
               カート
              </button>
             <% end %>
-
-            <%= button_to "ログアウト", destroy_customer_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %>
+             <%= link_to destroy_customer_session_path do %>
+             <button class="btn btn-secondary btn-lg" >
+              ログアウト
+             </button>
+            <% end %>
+            <%#= button_to "ログアウト", destroy_customer_session_path, method: :delete, class: "header_btn glyphicon glyphicon-log-out" %>
           </div>
 
+  <div class="container-fluid">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+   <i class="fas fa-search"></i>
+    </form>
+  </div>
+ </div>
+</nav>
         <% elsif admin_signed_in? %>
           <!-- 管理者がログインしている時 -->
+          <nav class="navbar navbar-light bg-light">
           <div class="button2">
             <%= link_to "admin_items_path" do %>
              <button class="btn btn-secondary btn-lg" >
               商品一覧
              </button>
-            <% end %><br>
+            <% end %>
 
             <%= link_to "admin_customers_path" do  %>
              <button class="btn btn-secondary btn-lg" >
               会員一覧
              </button>
-           <% end %><br>
+           <% end %>
 
             <%= link_to "today_order_index_admin_orders_path" do %>
              <button class="btn btn-secondary btn-lg" >
               注文履歴一覧
              </button>
-           <% end %><br>
+           <% end %>
 
             <%= button_to "ログアウト", destroy_admin_session_path, method: :delete  %>
           </div>
-
+  <div class="container-fluid">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <i class="far fa-search"></i>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
         <% else %>
           <!-- ログインしていない時 -->
+         <nav class="navbar navbar-light bg-light">
           <div class="button3">
            <%= link_to "public_homes_about_path" do %>
              <button class="btn btn-secondary btn-lg" >
               About
              </button>
-           <% end %><br>
+           <% end %>
 
            <%= link_to "public_items_path" do %>
              <button class="btn btn-secondary btn-lg" >
               商品一覧
              </button>
-           <% end %><br>
+           <% end %>
 
            <%= link_to "new_customer_registration_path" do %>
              <button class="btn btn-secondary btn-lg" >
              新規登録
              </button>
-           <% end %><br>
+           <% end %>
 
            <%= link_to "new_customer_session_path" do %>
             <button class="btn btn-secondary btn-lg" >
             ログイン
             </button>
-           <% end %><br>
+           <% end %>
+
+  <div class="container-fluid">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <i class="far fa-search"></i>
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
           </div>
 
         <% end %>
       </ul>
-      </div>
+
     </nav>
     </header>
    <main>

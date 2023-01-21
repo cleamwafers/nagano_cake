@@ -14,9 +14,10 @@
   <div class="field">
     <%= f.label :"宛名" %>
     <%= f.text_field :name, autocomplete: "name" %>
+    <%= f.submit "新規登録", class:"btn btn-secondary btn-lg"  %>
+    <% end %>
   </div>
-   <%= f.submit "新規登録", class:"btn btn-secondary btn-lg"  %>
-<% end %>
+
 
  <table border="1" cellspacing="0" cellpadding="0" >
   <tr>
@@ -34,21 +35,19 @@
         <td>
           <%= address.name %>
         </td>
-        <td><%= cart_item.subtotal %></td>
         <td>
-         <%= link_to edit_public_address_path do %>
+         <%= link_to edit_public_address_path(address) do %>
           <button class="btn btn-secondary btn-lg" >
             編集する
           </button>
          <% end %>
-         <%= link_to public_addresses, method: :delete, data:{confirm: '本当に削除しますか？'} do %>
+         <%= link_to public_addresses_path(address), method: :delete, data:{confirm: '本当に削除しますか？'} do %>
               <button class="btn btn-secondary btn-lg" >
                 削除する
               </button>
             <% end %>
         </td>
           </tr>
-          <% @total_price+=  cart_item.subtotal  %>
         <% end %>
       </tbody>
     </table>
