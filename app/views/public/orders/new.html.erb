@@ -26,8 +26,4 @@
  <%= f.label :"宛名" %>
     <%= f.text_field :name, autocomplete: "name" %><br>
  <% end %>
-  <%= link_to comfirm_public_orders_path do %>
-    <button class="btn btn-secondary btn-lg" >
-      確認画面へ進む
-    </button>
-  <% end %>
+  <%= link_to "確認画面へ進む",comfirm_public_orders_path,class: "btn btn-primary" %>
