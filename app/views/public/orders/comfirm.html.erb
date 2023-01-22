@@ -1,6 +1,7 @@
 <h2>注文情報確認</h2>
-<div calss="row">
-    <table border="1" cellspacing="0" cellpadding="0">
+<div class="row">
+
+    <table border="1",class="col-md-4" >
       <thead>
           <tr class="info">
             <th>商品名</th>
@@ -10,7 +11,7 @@
           </tr>
       </thead>
       <tbody>
-          <% @cart_items.each do |cart| %>
+        <% @cart_items.each do |cart| %>
             <tr>
               <td class="text-left">
                 <%= image_tag cart.item.get_image(50,50) %>
@@ -26,11 +27,13 @@
                 <%= cart.subtotal %>
               </td>
             </tr>
-            <%= @total_price+=  cart.subtotal %>
-          <% end %>
+            <% @total_price+=  cart.subtotal %>
+       <% end %>
       </tbody>
     </table>
-    <table border="1" cellspacing="0" cellpadding="0">
+
+
+    <table border="1", class="col-md-2 offset-md-1" >
        <tr>
         <th class="info">送料</th>
          <td><%= @order.shopping_fee %></td>
@@ -41,14 +44,16 @@
          </tr>
        <tr>
         <th class="info">請求金額</th>
-        <td class="text-right"><%= @order.shopping_fee+@total_price %></td>
+        <td><%= @order.shopping_fee+@total_price %></td>
        </tr>
     </table>
+
   </div>
           <div  class="info">支払方法</div>
             <%= @order.pay_type_i18n  %><br>
           <div  class="info">お届け先</div>
             <%= @order.address %>
+            
   <%= link_to thanx_public_orders_path do %>
         <button class="btn btn-success" >
          注文を確定する

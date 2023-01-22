@@ -10,6 +10,9 @@ class Public::OrdersController < ApplicationController
   @order = Order.new(order_params)
   @total_price = 0
   @order.shopping_fee =800
+  @order.postal_code = current_customer.postal_code
+  @order.address = current_customer.address
+  @order.name = current_customer.first_name + current_customer.last_name
   end
 
   def thanx
