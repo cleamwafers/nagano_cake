@@ -34,10 +34,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    
   end
 
   def index
-
+ @orders = Order.all
   end
 
   def show

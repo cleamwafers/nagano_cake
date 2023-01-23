@@ -32,8 +32,9 @@
           <% end %>
         </td>
         <td><%= cart_item.subtotal %></td>
-        <td><%= link_to "削除する" public_items_path,class :"btn btn-danger", method: :delete, data:{confirm: '本当に削除しますか？'}  %>
 
+        <td>
+          <%= link_to "削除する",  public_items_path, method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %>
         </td>
           </tr>
           <% @total_price+=  cart_item.subtotal  %>

@@ -54,8 +54,7 @@
           <div  class="info">お届け先</div>
             <%= @order.address %>
 
-  <%= link_to thanx_public_orders_path do %>
-        <button class="btn btn-success" >
-         注文を確定する
-        </button>
-  <% end %>
+<%= form_with model:@order,url:public_orders_path do |f| %>
+  <%= f.hidden_field :name, :value => @order.name %>
+  <%= f.submit '注文を確定する', data: { confirm: "購入確定しますか？"} %>
+<% end %>
