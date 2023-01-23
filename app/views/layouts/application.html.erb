@@ -12,11 +12,11 @@
   <body>
 <header>
  <script src="https://kit.fontawesome.com/b19cc7d22f.js" crossorigin="anonymous"></script>
-     <nav class="nav navbar-nav navbar-left title">
-     <div class="container">
+  <nav class="nav navbar-nav navbar-left title">
+    <div class="container">
       <ul class="nav navbar-nav navbar-right">
          <%=link_to "LOGO", public_top_path, class: "btn btn-light" %>
-     </div>
+    </div>
 
         <% if customer_signed_in? %>
           <!--カスタマーがログインしている時 -->
@@ -87,10 +87,12 @@
 
     </nav>
     </header>
+  <hr>
    <main>
     <%= flash[:notice] %>
     <%= yield %>
     </main>
+　<hr>
 
   </body>
 </html>
