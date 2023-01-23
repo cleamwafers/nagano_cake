@@ -6,7 +6,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def comfirm
-
     @cart_items =CartItem.all
     @order = Order.new(order_params)
     @total_price = 0
@@ -38,6 +37,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+
   end
 
   def show
