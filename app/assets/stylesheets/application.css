@@ -40,3 +40,12 @@ position: absolute;
     background-color: #28a745;
     border-color: #28a745;
 }
+
+.ligo{
+  width: 210px;
+  margin-top:14px;
+}
+.page-header{
+  display: flex;
+  justify-content: space-between;
+  }

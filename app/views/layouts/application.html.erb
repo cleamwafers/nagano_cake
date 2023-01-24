@@ -12,15 +12,13 @@
   <body>
 <header>
  <script src="https://kit.fontawesome.com/b19cc7d22f.js" crossorigin="anonymous"></script>
-  <nav class="nav navbar-nav navbar-left title">
-    <div class="container">
-      <ul class="nav navbar-nav navbar-right">
-         <%=link_to "LOGO", public_top_path, class: "btn btn-light" %>
-    </div>
 
         <% if customer_signed_in? %>
           <!--カスタマーがログインしている時 -->
          <div class="container">
+         <div class="page-header">
+         <ul class="logo">
+         <%=link_to "LOGO", public_top_path, class: "btn btn-light" %>
           <nav class="navbar navbar-light bg-light">
             ようこそ、<%= current_customer.last_name %>さん！
           <div class="button1">
@@ -40,9 +38,13 @@
            </form>
           </div>
           </nav>
+          </ul>
          </div>
         <% elsif admin_signed_in? %>
           <!-- 管理者がログインしている時 -->
+          <div class="page-header">
+          <ul class="logo">
+         <%=link_to "LOGO", public_top_path, class: "btn btn-light" %>
           <nav class="navbar navbar-light bg-light">
           <div class="button2">
             <%= link_to "商品一覧",admin_items_path,class: "btn btn-light"  %>
@@ -60,10 +62,14 @@
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
+  </ul>
+  </div>
 </nav>
         <% else %>
           <!-- ログインしていない時 -->
-
+      <div class="page-header">
+      <ul class="logo">
+         <%=link_to "LOGO", public_top_path, class: "btn btn-light" %>
            <%= link_to  "About",public_homes_about_path,class: "btn btn-light" %>
 
            <%= link_to "商品一覧",public_items_path,class: "btn btn-light" %>
@@ -79,7 +85,7 @@
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
-</nav>
+</ul>
           </div>
 
         <% end %>
@@ -87,6 +93,7 @@
 
     </nav>
     </header>
+  </div>
   <hr>
    <main>
     <%= flash[:notice] %>
