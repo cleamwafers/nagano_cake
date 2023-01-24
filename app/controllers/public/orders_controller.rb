@@ -37,8 +37,18 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
      @order.customer_id =current_customer.id
      @order.save
-
-     redirect_to public_customer_path(current_customer)
+    current_customer.cart_items.each do |cart_item|
+      order_item =OrderItem.new
+      order_item.item_id =cart_item.item_id
+      #リレーションを生かして値段を持ってくる
+      order_item.purchase_price =cart_item.item.price
+      order_item.order_id =@order.id
+      order_item.quantity =cart_item.amount
+      order_item.production_status = 0
+      order_item.save
+    end
+    current_customer.cart_items.destroy_all
+     redirect_to thanx_public_orders_path(current_customer)
   end
 
   def index
