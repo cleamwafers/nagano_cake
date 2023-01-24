@@ -20,7 +20,7 @@
             </td>
             <td class="text-left">
               <%= link_to admin_customer_path(customer), class: "btn-link"  do %>
-                <i class="far fa-user"></i>
+
                 <%= customer.full_name %>
               <% end %>
             </td>
@@ -31,7 +31,7 @@
             <% if customer.is_deleted==false %>
             有効
             <% else %>
-            無効
+            退会
 　　　　　　<% end %>
             </td>
           </tr>
@@ -39,5 +39,5 @@
       </tbody>
     </table>
   </div>
-    <div class= "text-center"><%= paginate(@customers) %></div>
+    <%= paginate(@customers) %>
 </div>
