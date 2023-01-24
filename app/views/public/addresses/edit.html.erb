@@ -1,5 +1,5 @@
 <h2>配送先編集</h2>
-<%= form_with(model:@address, url:public_addresses_path, local: true ,method: :get) do |f| %>
+<%= form_with model: @address, url: public_address_path(@address), local: true do |f| %>
   <div class="field">
     <%= f.label :"郵便番号(ハイフンなし)" %>
     <%= f.text_field :postal_code, autocomplete: "postal_code" %>

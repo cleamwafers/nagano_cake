@@ -8,6 +8,7 @@ before_action :authenticate_customer!
 
   def edit
     @address = Address.find(params[:id])
+
   end
 
   def create
@@ -27,7 +28,7 @@ before_action :authenticate_customer!
     @address = Address.find(params[:id])
 	  if @address.update(address_params)
   	 flash[:success] = "配送先を変更しました"
-     redirect_to customers_addresses_path
+    # redirect_to customers_addresses_path
 	  else
 	   render "edit"
 	  end
@@ -38,13 +39,13 @@ before_action :authenticate_customer!
 	  @address.destroy
     @addresses = current_customer.address
     flash.now[:alert] = "配送先を削除しました"
-	  # redirect_to customers_addresses_path
+	   redirect_to public_addresses_path
   end
 
   private
 
 	def address_params
-  	params.require(:address).permit(:postal_code, :address, :name)
+  	params.require(:address).permit(:postal_code, :address, :name,:last_name_kana, :first_name_kana, :address, :telephone_number)
   	end
 
 end

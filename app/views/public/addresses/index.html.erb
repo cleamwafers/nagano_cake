@@ -41,11 +41,8 @@
             編集する
           </button>
          <% end %>
-         <%= link_to public_addresses_path(address), method: :delete, data:{confirm: '本当に削除しますか？'} do %>
-              <button class="btn btn-danger" >
-                削除する
-              </button>
-            <% end %>
+         <%= link_to("削除する", public_address_path(address), {method: :delete, data:{confirm: '本当に削除しますか？'}, class: "btn btn-danger"}) %>
+
         </td>
           </tr>
         <% end %>

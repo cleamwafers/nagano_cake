@@ -3,7 +3,7 @@
 
     <h2 class="head-line title_h2 text-center">会員情報編集</h2>
 
-    <%= form_with(model:@customer, url:customer_session_path, local: true ,method: :put) do |f| %>
+    <%= form_with(model: @customer, url: public_customer_path(@customer), local: true ,method: :put) do |f| %>
       <!--<%#= render "layouts/error_messages", resource: @customer %>-->
 
       <div class="col-xs-10">
