@@ -1,24 +1,24 @@
-<h2 class="head-line title_h2 text-center">注文履歴詳細</h2>
+<h2>注文履歴詳細</h2>
  <div calss="row">
   <%# if @order.present? %>
-    <div class="border-1">
-    	<strong>注文情報</strong>
-  	    <table>
+    <div>
+    	<strong>注文情報</strong><br>
+  	    <table border="1">
           <tbody>
               <tr>
                 <th class="info">注文日</th>
           	  <td class="text-left"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-              </tr>
+              </tr><br>
               <tr>
                <th class="info">配送先</th>
-                <td class="text-left"><%= @order.postal_code %><br>
+                <td class="text-left">〒<%= @order.postal_code %><br>
                 	  <%= @order.address %><br>
-                	  <%= @order.name %>
+                	  <%= @order.name %><br>
                 </td>
               </tr>
               <tr>
               <th class="info">支払方法</th>
-                <td class="text-left"><%= @order.pay_type %></td>
+                <td class="text-left"><%= @order.pay_type_i18n %></td>
               </tr>
 
           </tbody>
@@ -27,10 +27,10 @@
 
     <div>
       <strong>請求情報</strong>
-        	<table>
+        	<table border="1">
             <tr>
               <th class="info">商品合計</th>
-              <td class="text-right col-xs-5"><%= @order.total_payment %>円</td>
+              <td class="text-right col-xs-5"><%= @order.total_payment-@order.shopping_fee %>円</td>
             </tr>
             <tr>
               <th class="info">配送料</th>
@@ -44,10 +44,10 @@
     </div>
     <div>
     	<strong>注文内容</strong>
-        <table>
+        <table border="1">
         	<thead>
   	      <tr class="info">
-  	      	<th>商品</th>.
+  	      	<th>商品</th>
   	        <th>単価(税込)</th>
   	      	<th>個数</th>
   	      	<th>小計</th>

@@ -62,5 +62,5 @@
     <%= f.hidden_field :shopping_fee, :value => @order.shopping_fee %>
      <%= f.hidden_field :status, :value => "waiting_for_payment" %>
 
-  <%= f.submit '注文を確定する', data: { confirm: "購入確定しますか？"} %>
+  <%= f.submit '注文を確定する',class: "btn btn-success", data: { confirm: "購入確定しますか？"} %>
 <% end %>
