@@ -57,9 +57,9 @@
         	<% @order.order_items.each do |order_items| %>
             <tr>
   	        <td><%= order_items.item.name %></td>
-  	        <td class="text-right"><%= order_items.purchase_price %>円</td>
+  	        <td class="text-right"><%= (order_items.purchase_price * 1.1).floor %>円</td>
   	        <td class="text-right"><%= order_items.quantity %></td>
-  	        <td class="text-right"><%= order_items.subtotal %>円</td>
+  	        <td class="text-right"><%= (order_items.subtotal * 1.1).floor %>円</td>
             </tr>
           <% end %>
           </tbody>
