@@ -9,7 +9,7 @@
        <% @item.errors.full_messages.each do |message| %>
         <%= message %>
        <% end %>
-    　<% end %>
+      <% end %>
       <div class="col-xs-4 col-xs-offset-1">
         <div class="img_field">
         <h4>商品画像</h4>
@@ -20,7 +20,10 @@
   <%= f.text_field :name %>
   <h4>商品説明</h4>
   <%= f.text_area :introduction, :cols => 40, :rows => 10  %>
+  <h4>ジャンル</h4>
+  <!-- f.collection_select :保存先のカラム名, 選択肢に使うオブジェクト, :一つ目の引数に渡す値, :選択肢に使うカラム名, include_blank: "選択して下さい" -->
 
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
   <h4>税抜価格</h4>
   <%= f.text_field :price %>
   <!--    <div class="col-xs-6">-->

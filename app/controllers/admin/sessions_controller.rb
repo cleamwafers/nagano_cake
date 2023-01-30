@@ -2,11 +2,11 @@
 
 class Admin::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
-    admin_top_path
+    admin_root_path
   end
 
   def after_sign_out_path_for(resource)
-    public_top_path
+    admin_session_path
   end
   # before_action :configure_sign_in_params, only: [:create]
 

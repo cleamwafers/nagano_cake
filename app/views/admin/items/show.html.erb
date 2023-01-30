@@ -14,6 +14,9 @@
          <label for="introduction">商品説明</label>
             <%= @item.introduction %>
            <br>
+           <label for="genre">ジャンル</label>
+            <%= @item.genre.name %>
+           <br>
          <label for="price">税込価格</label>
               <%= (@item.price * 1.1).floor %>(<%= @item.price %>)円<br>
 	        	(税抜価格)<br>

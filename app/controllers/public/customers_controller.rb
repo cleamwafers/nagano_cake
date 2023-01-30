@@ -28,7 +28,7 @@ class Public::CustomersController < ApplicationController
 
     reset_session
     flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-    redirect_to public_top_path
+    redirect_to root_path
   end
 
   private

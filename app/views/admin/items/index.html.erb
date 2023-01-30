@@ -4,28 +4,29 @@
     <%= link_to new_admin_item_path do %>
     <i class="fa-solid fa-plus"></i>
   <% end %>
-    <!--<a class="fa-solid fa-plus" href="https://76ae9d2481f540048c92e1d8e3551201.vfs.cloud9.ap-northeast-1.amazonaws.com/admin/items/new"></a>-->
       <thead>
         <tr class="info">
           <th>商品ID</th>
           <th>商品名</th>
           <th>税抜価格</th>
-
+          <th>ジャンル<th>
         </tr>
       </thead>
       <tbody>
 				<% @items.each do |item| %>
   				<tr>
-            <td class="info col-xs-1">
+            <td>
               <%= item.id %>
             </td>
-            <td class="text-left">
+            <td>
               <%= link_to item.name, admin_item_path(item.id) %>
             </td>
-            <td class="text-right col-xs-1">
+            <td>
               <%= item.price %>
             </td>
-
+            <td>
+              <%= item.genre.name %>
+            </td>
           </tr>
         <% end %>
       </tbody>
