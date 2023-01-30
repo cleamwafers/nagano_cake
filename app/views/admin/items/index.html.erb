@@ -1,6 +1,10 @@
 <h3 class="head-line title_h2 text-center admin_item_index">商品一覧</h3>
 <div class="row">
     <table class="table table-hover table-bordered table-condensed">
+    <%= link_to new_admin_item_path do %>
+    <i class="fa-solid fa-plus"></i>
+  <% end %>
+    <!--<a class="fa-solid fa-plus" href="https://76ae9d2481f540048c92e1d8e3551201.vfs.cloud9.ap-northeast-1.amazonaws.com/admin/items/new"></a>-->
       <thead>
         <tr class="info">
           <th>商品ID</th>
