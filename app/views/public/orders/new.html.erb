@@ -15,7 +15,7 @@
 <!--登録済み住所-->
  <%= f.radio_button :adresses_method, 1 %>
  <%= f.label :登録済住所から選択 %><br>
- <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %><br>
+ <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :address_display) %><br>
 <!--新しいお届け先-->
  <%= f.radio_button :adresses_method, 2 %>
  <%= f.label :新しいお届け先 %><br>
