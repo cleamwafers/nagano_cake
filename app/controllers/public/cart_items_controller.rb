@@ -8,12 +8,10 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
-    @cart_item.update(quantity: params[:cart_item][:quantity].to_i)
-    flash.now[:success] = "#{@cart_item.product.name}の数量を変更しました"
-    @price = sub_price(@cart_item).to_s(:delimited)
-    @cart_items = current_cart
-    @total = total_price(@cart_items).to_s(:delimited)
-    # redirect_to public_cart_items_path
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(amount: params[:cart_item][:amount].to_i)
+    flash.now[:success] = "#{@cart_item.item.name}の数量を変更しました"
+    redirect_to public_cart_items_path
   end
 
   def destroy
