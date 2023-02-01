@@ -17,7 +17,7 @@ before_action :authenticate_customer!
     @addresses = current_customer.address
 	  if @address.save
 	  	 flash.now[:notice] = "新規配送先を登録しました"
-	     # redirect_to customers_addresses_path
+	      redirect_to public_addresses_path
 	  # else
 	  # 	 @addresses = current_customer.address
 	  #    render 'index'
